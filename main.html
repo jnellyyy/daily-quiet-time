@@ -4,11 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Pace Quiet Time</title>
+<title>Timothy Church Quiet Time</title>
 
-<link rel="manifest" href="site.webmanifest">
-<link rel="apple-touch-icon" href="icon-180.png">
-<link rel="icon" href="icon-32.png">
 <meta name="theme-color" content="#0f1115">
 
 <style>
@@ -23,16 +20,14 @@
   --soft:#d6dbea;
   --accent:#ff3b30;
   --accent2:#ff6b61;
-  --gold:#f7c948;
   --green:#22c55e;
-  --purple:#a78bfa;
-  --blue:#60a5fa;
   --shadow:0 20px 50px rgba(0,0,0,0.35);
   --radius:26px;
 }
 
 *{
   box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
 
 body{
@@ -55,15 +50,9 @@ body{
 .topbar{
   display:flex;
   justify-content:space-between;
-  align-items:center;
+  align-items:flex-start;
   gap:14px;
   margin-bottom:18px;
-}
-
-.brand{
-  display:flex;
-  flex-direction:column;
-  gap:4px;
 }
 
 .kicker{
@@ -71,25 +60,22 @@ body{
   color:var(--muted);
   letter-spacing:0.12em;
   text-transform:uppercase;
-  font-weight:800;
+  font-weight:900;
 }
 
 h1{
-  margin:0;
+  margin:5px 0 0;
   font-size:34px;
   line-height:1;
   letter-spacing:-0.04em;
 }
 
-.back{
-  padding:11px 15px;
-  border-radius:16px;
-  background:rgba(255,255,255,0.08);
-  border:1px solid var(--line);
-  color:#fff;
-  text-decoration:none;
-  font-weight:800;
-  white-space:nowrap;
+.today-date{
+  color:var(--muted);
+  font-size:14px;
+  font-weight:750;
+  text-align:right;
+  line-height:1.4;
 }
 
 .grid{
@@ -108,7 +94,7 @@ h1{
 }
 
 .hero{
-  min-height:360px;
+  min-height:370px;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
@@ -119,8 +105,8 @@ h1{
 .hero:before{
   content:"";
   position:absolute;
-  width:260px;
-  height:260px;
+  width:270px;
+  height:270px;
   border-radius:999px;
   right:-90px;
   top:-100px;
@@ -151,20 +137,14 @@ h1{
   border:1px solid var(--line);
   color:var(--soft);
   font-size:13px;
-  font-weight:800;
-}
-
-.today-date{
-  color:var(--muted);
-  font-size:14px;
-  font-weight:700;
+  font-weight:850;
 }
 
 .theme{
   margin:22px 0 8px;
   font-size:15px;
   color:var(--accent2);
-  font-weight:900;
+  font-weight:950;
   letter-spacing:0.10em;
   text-transform:uppercase;
 }
@@ -181,13 +161,14 @@ h1{
   margin-top:14px;
   color:var(--muted);
   font-size:15px;
-  font-weight:800;
+  font-weight:850;
 }
 
 .source{
-  margin-top:8px;
-  color:rgba(255,255,255,0.45);
+  margin-top:10px;
+  color:rgba(255,255,255,0.48);
   font-size:12px;
+  line-height:1.4;
 }
 
 .hero-bottom{
@@ -209,7 +190,7 @@ h1{
 .mini-label{
   font-size:12px;
   color:var(--muted);
-  font-weight:900;
+  font-weight:950;
   text-transform:uppercase;
   letter-spacing:0.10em;
 }
@@ -219,7 +200,7 @@ h1{
   font-size:15px;
   color:var(--text);
   line-height:1.35;
-  font-weight:700;
+  font-weight:750;
 }
 
 .side-stack{
@@ -241,7 +222,7 @@ h1{
 .stat-label{
   color:var(--muted);
   font-size:13px;
-  font-weight:800;
+  font-weight:850;
   margin-top:4px;
 }
 
@@ -257,6 +238,59 @@ h1{
   color:var(--muted);
   line-height:1.45;
   font-size:14px;
+}
+
+.devotional-link{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.link-button{
+  display:block;
+  width:100%;
+  text-align:center;
+  text-decoration:none;
+  padding:14px 16px;
+  border-radius:18px;
+  background:var(--accent);
+  color:#fff;
+  font-weight:950;
+}
+
+.small-link{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.45;
+}
+
+.progress-list{
+  display:grid;
+  gap:10px;
+}
+
+.check-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.08);
+  cursor:pointer;
+}
+
+.check-row input{
+  width:19px;
+  height:19px;
+  accent-color:#ff3b30;
+}
+
+.check-row span{
+  color:var(--soft);
+  font-size:14px;
+  font-weight:850;
+  line-height:1.35;
 }
 
 .devotional-grid{
@@ -372,8 +406,9 @@ button{
   display:grid;
   gap:10px;
   margin-top:12px;
-  max-height:320px;
+  max-height:360px;
   overflow:auto;
+  padding-right:3px;
 }
 
 .history-item{
@@ -381,6 +416,11 @@ button{
   background:rgba(255,255,255,0.06);
   border-radius:17px;
   padding:12px;
+  cursor:pointer;
+}
+
+.history-item:hover{
+  background:rgba(255,255,255,0.09);
 }
 
 .history-date{
@@ -394,6 +434,13 @@ button{
   color:var(--muted);
   font-size:13px;
   line-height:1.35;
+}
+
+.history-note{
+  margin-top:8px;
+  color:var(--soft);
+  font-size:13px;
+  line-height:1.4;
 }
 
 .empty{
@@ -411,6 +458,38 @@ button{
   border:1px solid rgba(34,197,94,0.28);
   color:#bbf7d0;
   font-weight:900;
+}
+
+.viewBox{
+  display:none;
+  margin-top:16px;
+  padding:16px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.07);
+  border:1px solid var(--line);
+}
+
+.viewTitle{
+  font-weight:950;
+  margin-bottom:6px;
+}
+
+.viewMeta{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.viewText{
+  display:grid;
+  gap:10px;
+  color:var(--soft);
+  line-height:1.5;
+  font-size:14px;
+}
+
+.viewText strong{
+  color:#fff;
 }
 
 @media(max-width:900px){
@@ -436,19 +515,14 @@ button{
     font-size:24px;
   }
 
-  .topbar{
-    align-items:flex-start;
+  .today-date{
+    text-align:left;
   }
 }
 
 @media(max-width:520px){
   .topbar{
     flex-direction:column;
-  }
-
-  .back{
-    width:100%;
-    text-align:center;
   }
 
   .card{
@@ -475,12 +549,12 @@ button{
 <div class="wrap">
 
   <div class="topbar">
-    <div class="brand">
-      <div class="kicker">Pace daily rhythm</div>
+    <div>
+      <div class="kicker">Timothy Church</div>
       <h1>Quiet Time</h1>
     </div>
 
-    <a href="dashboard.html" class="back">Back to dashboard</a>
+    <div class="today-date" id="todayDate"></div>
   </div>
 
   <div class="grid">
@@ -489,7 +563,8 @@ button{
       <div class="hero-content">
         <div class="row">
           <div class="pill" id="dayPill">Today</div>
-          <div class="today-date" id="todayDate"></div>
+          <div class="pill">KJV</div>
+          <div class="pill" id="completionPill">Not saved yet</div>
         </div>
 
         <div class="theme" id="theme"></div>
@@ -497,7 +572,10 @@ button{
         <p class="verse" id="verse"></p>
 
         <div class="ref" id="ref"></div>
-        <div class="source">Scripture wording uses public domain World English Bible style wording</div>
+
+        <div class="source">
+          Bible version: King James Version.
+        </div>
       </div>
 
       <div class="hero-bottom">
@@ -520,6 +598,26 @@ button{
 
     <aside class="side-stack">
 
+      <div class="card devotional-link">
+        <h2 class="section-title">Daily devotional</h2>
+        <p class="section-sub">
+          Read the official devotional, then come back here to pray, reflect, and save your notes.
+        </p>
+
+        <a
+          class="link-button"
+          href="https://www.daghewardmills.org/daily-devotional"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Read today’s devotional
+        </a>
+
+        <div class="small-link">
+          Opens the official Dag Heward Mills devotional website.
+        </div>
+      </div>
+
       <div class="card stat">
         <div class="pill">Saved quiet times</div>
         <div class="stat-number" id="savedCount">0</div>
@@ -529,13 +627,34 @@ button{
       <div class="card stat">
         <div class="pill">This month</div>
         <div class="stat-number" id="monthCount">0</div>
-        <div class="stat-label">days you wrote something</div>
+        <div class="stat-label">days with saved progress</div>
       </div>
 
       <div class="card">
-        <h2 class="section-title">Saved history</h2>
-        <p class="section-sub">Your notes stay private in this browser only.</p>
-        <div id="historyList" class="history-list"></div>
+        <h2 class="section-title">Today’s progress</h2>
+        <p class="section-sub">Tick each part as you go. Your progress saves with today’s entry.</p>
+
+        <div class="progress-list">
+          <label class="check-row">
+            <input type="checkbox" id="readDone">
+            <span>Read scripture</span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" id="devotionalDone">
+            <span>Read devotional</span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" id="prayerDone">
+            <span>Prayed honestly</span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" id="obeyDone">
+            <span>Chose one act of obedience</span>
+          </label>
+        </div>
       </div>
 
     </aside>
@@ -568,24 +687,24 @@ button{
 
   <section class="card" style="margin-top:16px;">
     <h2 class="section-title">Speak to God about this</h2>
-    <p class="section-sub">Use the prompts below slowly. Do not rush to fill every box. Let one sentence become a prayer.</p>
+    <p class="section-sub">Use the prompts slowly. One honest sentence is enough.</p>
 
     <div class="prompt-list" id="promptList"></div>
   </section>
 
   <section class="card" style="margin-top:16px;">
-    <h2 class="section-title">Today’s quiet time notes</h2>
+    <h2 class="section-title">Today’s notes</h2>
     <p class="section-sub">Save what God highlights, what you need to surrender, and what you are asking for grace to obey.</p>
 
     <div class="notes-grid">
       <div>
         <label for="reflection">What stood out?</label>
-        <textarea id="reflection" placeholder="What is God showing me in this scripture?"></textarea>
+        <textarea id="reflection" placeholder="What did God highlight to me today?"></textarea>
       </div>
 
       <div>
         <label for="surrender">What must I surrender?</label>
-        <textarea id="surrender" placeholder="Where do I need to repent, trust, forgive, obey, or slow down?"></textarea>
+        <textarea id="surrender" placeholder="What do I need to repent, trust, forgive, obey, or slow down with?"></textarea>
       </div>
 
       <div>
@@ -595,20 +714,37 @@ button{
     </div>
 
     <div class="actions">
-      <button class="primary" onclick="saveToday()">Save today</button>
-      <button class="secondary" onclick="clearToday()">Clear today</button>
+      <button class="primary" id="saveBtn">Save today</button>
+      <button class="secondary" id="clearBtn">Clear today</button>
+      <button class="secondary" id="deleteBtn">Delete today</button>
     </div>
 
     <div id="savedMsg" class="saved">Saved</div>
   </section>
 
+  <section class="card" style="margin-top:16px;">
+    <h2 class="section-title">Saved history</h2>
+    <p class="section-sub">Your notes stay private in this browser only. Tap any entry to view it.</p>
+
+    <div id="historyList" class="history-list"></div>
+
+    <div id="viewBox" class="viewBox">
+      <div class="viewTitle" id="viewTitle"></div>
+      <div class="viewMeta" id="viewMeta"></div>
+      <div class="viewText" id="viewText"></div>
+    </div>
+  </section>
+
 </div>
 
 <script>
+const STORAGE_KEY = "timothyChurchQuietTimeEntriesV1";
+const BIBLE_VERSION = "KJV";
+
 const devotionals = [
   {
     theme:"Hidden obedience",
-    verse:"Your Father who sees in secret will reward you.",
+    verse:"But thou, when thou prayest, enter into thy closet, and when thou hast shut thy door, pray to thy Father which is in secret.",
     ref:"Matthew 6:6",
     ponder:"God sees what no one applauds.",
     ask:"Where have I started performing instead of praying?",
@@ -625,7 +761,7 @@ const devotionals = [
   },
   {
     theme:"Costly discipleship",
-    verse:"If anyone desires to come after me, let him deny himself, take up his cross daily, and follow me.",
+    verse:"If any man will come after me, let him deny himself, and take up his cross daily, and follow me.",
     ref:"Luke 9:23",
     ponder:"Following Jesus touches daily choices.",
     ask:"What comfort has become louder than Christ?",
@@ -642,7 +778,7 @@ const devotionals = [
   },
   {
     theme:"The fear of the Lord",
-    verse:"The fear of Yahweh is the beginning of wisdom.",
+    verse:"The fear of the LORD is the beginning of wisdom: and the knowledge of the holy is understanding.",
     ref:"Proverbs 9:10",
     ponder:"Reverence protects the heart.",
     ask:"Have I become casual with holy things?",
@@ -659,7 +795,7 @@ const devotionals = [
   },
   {
     theme:"A clean heart",
-    verse:"Create in me a clean heart, O God. Renew a right spirit within me.",
+    verse:"Create in me a clean heart, O God; and renew a right spirit within me.",
     ref:"Psalm 51:10",
     ponder:"God can renew what sin has stained.",
     ask:"What needs confession, not covering?",
@@ -676,7 +812,7 @@ const devotionals = [
   },
   {
     theme:"Spiritual hunger",
-    verse:"Blessed are those who hunger and thirst after righteousness, for they shall be filled.",
+    verse:"Blessed are they which do hunger and thirst after righteousness: for they shall be filled.",
     ref:"Matthew 5:6",
     ponder:"God fills hungry people.",
     ask:"What has been feeding my appetite more than God?",
@@ -693,7 +829,7 @@ const devotionals = [
   },
   {
     theme:"Faithfulness in small things",
-    verse:"He who is faithful in a very little is faithful also in much.",
+    verse:"He that is faithful in that which is least is faithful also in much.",
     ref:"Luke 16:10",
     ponder:"Small obedience reveals true stewardship.",
     ask:"What small thing have I been neglecting?",
@@ -710,7 +846,7 @@ const devotionals = [
   },
   {
     theme:"Abiding",
-    verse:"Remain in me, and I in you. As the branch cannot bear fruit by itself unless it remains in the vine, so neither can you, unless you remain in me.",
+    verse:"Abide in me, and I in you. As the branch cannot bear fruit of itself, except it abide in the vine.",
     ref:"John 15:4",
     ponder:"Fruit comes from connection, not striving.",
     ask:"Am I trying to produce without remaining?",
@@ -727,7 +863,7 @@ const devotionals = [
   },
   {
     theme:"Mercy over judgement",
-    verse:"Blessed are the merciful, for they shall obtain mercy.",
+    verse:"Blessed are the merciful: for they shall obtain mercy.",
     ref:"Matthew 5:7",
     ponder:"Mercy received must become mercy shown.",
     ask:"Who have I judged harshly in my heart?",
@@ -744,7 +880,7 @@ const devotionals = [
   },
   {
     theme:"Guarding the heart",
-    verse:"Keep your heart with all diligence, for out of it is the wellspring of life.",
+    verse:"Keep thy heart with all diligence; for out of it are the issues of life.",
     ref:"Proverbs 4:23",
     ponder:"The heart must be watched, not ignored.",
     ask:"What has been shaping my inner life recently?",
@@ -761,7 +897,7 @@ const devotionals = [
   },
   {
     theme:"Waiting well",
-    verse:"Those who wait for Yahweh will renew their strength.",
+    verse:"But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles.",
     ref:"Isaiah 40:31",
     ponder:"Waiting with God is not wasted.",
     ask:"Where has delay made me restless or resentful?",
@@ -778,7 +914,7 @@ const devotionals = [
   },
   {
     theme:"Soul winning",
-    verse:"The fruit of the righteous is a tree of life. He who is wise wins souls.",
+    verse:"The fruit of the righteous is a tree of life; and he that winneth souls is wise.",
     ref:"Proverbs 11:30",
     ponder:"Wisdom cares about souls.",
     ask:"Who around me needs prayer, love, or witness?",
@@ -795,7 +931,7 @@ const devotionals = [
   },
   {
     theme:"Loyalty to God",
-    verse:"Choose today whom you will serve.",
+    verse:"Choose you this day whom ye will serve.",
     ref:"Joshua 24:15",
     ponder:"Loyalty is chosen before it is tested.",
     ask:"Where is my heart divided?",
@@ -812,7 +948,7 @@ const devotionals = [
   },
   {
     theme:"Humility",
-    verse:"God resists the proud, but gives grace to the humble.",
+    verse:"God resisteth the proud, but giveth grace unto the humble.",
     ref:"James 4:6",
     ponder:"Grace flows downward to the humble.",
     ask:"Where am I resisting correction?",
@@ -829,7 +965,7 @@ const devotionals = [
   },
   {
     theme:"The Word as mirror",
-    verse:"Be doers of the word, and not only hearers, deluding your own selves.",
+    verse:"But be ye doers of the word, and not hearers only, deceiving your own selves.",
     ref:"James 1:22",
     ponder:"Hearing must become obedience.",
     ask:"What truth have I heard but not acted on?",
@@ -842,312 +978,6 @@ const devotionals = [
       "Father, what have You already told me?",
       "Where have I delayed obedience because I wanted more confirmation?",
       "Help me act on Your Word today."
-    ]
-  },
-  {
-    theme:"Strength in weakness",
-    verse:"My grace is sufficient for you, for my power is made perfect in weakness.",
-    ref:"2 Corinthians 12:9",
-    ponder:"Weakness can become a meeting place with grace.",
-    ask:"Where am I ashamed of needing God?",
-    obey:"Bring your weakness to God without pretending.",
-    wordToSitWith:"God does not only meet polished strength. He meets surrendered weakness and shows His power there.",
-    heartCheck:"Am I hiding weakness from God, from myself, or from safe people?",
-    prayerDirection:"Ask God to make His grace real in the exact place you feel insufficient.",
-    fruitToday:"Dependence. Relief from pretending. Grace for today.",
-    prompts:[
-      "Jesus, meet me in the place I feel weak.",
-      "What weakness have I been trying to cover?",
-      "Let Your power rest on me without pride."
-    ]
-  },
-  {
-    theme:"Forgiveness",
-    verse:"Forgive, and you will be forgiven.",
-    ref:"Luke 6:37",
-    ponder:"Forgiveness releases the heart from becoming a prison.",
-    ask:"Who still has a room in my heart through offence?",
-    obey:"Name the offence before God and ask for grace to release it.",
-    wordToSitWith:"Forgiveness does not deny pain. It hands the debt to God and refuses to let bitterness become lord.",
-    heartCheck:"Am I protecting my pain more than I am pursuing freedom?",
-    prayerDirection:"Ask God to heal the wound and give grace to forgive from the heart.",
-    fruitToday:"Freedom. Softer prayer. Less inner replaying.",
-    prompts:[
-      "Lord, I bring this offence into Your presence.",
-      "What am I still replaying because I have not released it?",
-      "Teach me forgiveness without pretending the pain was small."
-    ]
-  },
-  {
-    theme:"Purity",
-    verse:"Blessed are the pure in heart, for they shall see God.",
-    ref:"Matthew 5:8",
-    ponder:"Purity clears spiritual sight.",
-    ask:"What has been clouding my ability to see God clearly?",
-    obey:"Choose one clean boundary today.",
-    wordToSitWith:"Purity is not only about avoiding sin. It is about wanting a heart that can see God without divided desire.",
-    heartCheck:"What do I keep entertaining that weakens my spiritual sight?",
-    prayerDirection:"Ask God to purify your desires, not just your behaviour.",
-    fruitToday:"Clearer conviction. Cleaner desire. Stronger peace.",
-    prompts:[
-      "Father, purify what I desire when no one is watching.",
-      "What boundary would protect my love for You?",
-      "Help me value Your presence more than temporary pleasure."
-    ]
-  },
-  {
-    theme:"Intercession",
-    verse:"Far be it from me that I should sin against Yahweh in ceasing to pray for you.",
-    ref:"1 Samuel 12:23",
-    ponder:"Prayer for others is love in secret.",
-    ask:"Who has God placed on my heart?",
-    obey:"Pray for three people by name.",
-    wordToSitWith:"Intercession is a quiet ministry. It carries people before God when they may not know how to carry themselves.",
-    heartCheck:"Have I complained about people more than I have prayed for them?",
-    prayerDirection:"Ask God to make you faithful in prayer for others.",
-    fruitToday:"Burden. Compassion. Spiritual responsibility.",
-    prompts:[
-      "Lord, who do You want me to stand in prayer for?",
-      "Forgive me for replacing prayer with criticism.",
-      "Teach me to carry people with love, not control."
-    ]
-  },
-  {
-    theme:"Godly speech",
-    verse:"Let the words of my mouth and the meditation of my heart be acceptable in your sight, Yahweh.",
-    ref:"Psalm 19:14",
-    ponder:"Words reveal the meditation of the heart.",
-    ask:"What have my words been exposing about me?",
-    obey:"Speak life where you would normally complain.",
-    wordToSitWith:"Speech is not separate from spirituality. What fills the heart eventually leaks through the mouth.",
-    heartCheck:"Are my words building, poisoning, exaggerating, or healing?",
-    prayerDirection:"Ask God to govern both your mouth and your inner commentary.",
-    fruitToday:"Cleaner speech. Less complaining. More blessing.",
-    prompts:[
-      "Father, put a watch over my mouth today.",
-      "What inner meditation is feeding my speech?",
-      "Make my words acceptable to You."
-    ]
-  },
-  {
-    theme:"Courage",
-    verse:"Haven’t I commanded you? Be strong and courageous. Don’t be afraid, neither be dismayed, for Yahweh your God is with you wherever you go.",
-    ref:"Joshua 1:9",
-    ponder:"Courage rests on God’s presence.",
-    ask:"Where has fear been leading me?",
-    obey:"Take one obedient step you have been avoiding.",
-    wordToSitWith:"Biblical courage is not personality. It is obedience strengthened by the promise that God is with you.",
-    heartCheck:"What has fear made smaller than God in my mind?",
-    prayerDirection:"Ask God for courage that comes from His presence, not self confidence.",
-    fruitToday:"Brave obedience. Clearer action. Less fear led delay.",
-    prompts:[
-      "Lord, where do I need courage today?",
-      "What step have I delayed because fear sounded wise?",
-      "Remind me that You are with me."
-    ]
-  },
-  {
-    theme:"Contentment",
-    verse:"Godliness with contentment is great gain.",
-    ref:"1 Timothy 6:6",
-    ponder:"Contentment protects joy from comparison.",
-    ask:"What comparison has been stealing my gratitude?",
-    obey:"Thank God specifically for three present gifts.",
-    wordToSitWith:"Contentment is not lack of desire. It is the quiet strength of trusting God while refusing to be ruled by comparison.",
-    heartCheck:"Am I measuring God’s goodness by someone else’s timeline?",
-    prayerDirection:"Ask God to restore gratitude and free you from comparison.",
-    fruitToday:"Peace. Gratitude. A steady heart.",
-    prompts:[
-      "Father, forgive me for despising my portion.",
-      "What have I overlooked because I was comparing?",
-      "Teach me contentment without killing holy ambition."
-    ]
-  },
-  {
-    theme:"Wisdom",
-    verse:"If any of you lacks wisdom, let him ask of God, who gives to all liberally and without reproach.",
-    ref:"James 1:5",
-    ponder:"God is not irritated by sincere asking.",
-    ask:"Where do I need wisdom, not panic?",
-    obey:"Ask before deciding.",
-    wordToSitWith:"Wisdom often begins when we admit we do not know enough to lead ourselves well.",
-    heartCheck:"Have I been making decisions from pressure, pride, fear, or prayer?",
-    prayerDirection:"Ask God for wisdom that is pure, peaceable, and obedient.",
-    fruitToday:"Better decisions. Less panic. More dependence.",
-    prompts:[
-      "Lord, I need wisdom in this specific area.",
-      "What motive is influencing my decision?",
-      "Lead me in a way that honours You."
-    ]
-  },
-  {
-    theme:"Love that proves discipleship",
-    verse:"By this everyone will know that you are my disciples, if you have love for one another.",
-    ref:"John 13:35",
-    ponder:"Love is evidence of discipleship.",
-    ask:"Who is difficult for me to love well?",
-    obey:"Show practical love without needing recognition.",
-    wordToSitWith:"Jesus did not say the world would know us by noise, knowledge, or gifting first. He pointed to love.",
-    heartCheck:"Is my knowledge of God making me more loving?",
-    prayerDirection:"Ask God for love that is patient, truthful, and practical.",
-    fruitToday:"Gentleness. Patience. A visible gospel.",
-    prompts:[
-      "Jesus, make my love look more like Yours.",
-      "Where have I become correct but cold?",
-      "Show me one practical way to love today."
-    ]
-  },
-  {
-    theme:"Repentance",
-    verse:"Repent therefore, and turn again, that your sins may be blotted out.",
-    ref:"Acts 3:19",
-    ponder:"Repentance is a turn, not just a tear.",
-    ask:"What direction needs to change?",
-    obey:"Make one practical turn away from sin.",
-    wordToSitWith:"Godly sorrow is not the end. Repentance turns the feet, habits, choices, and heart back toward God.",
-    heartCheck:"Have I mistaken feeling bad for changing direction?",
-    prayerDirection:"Ask God for true repentance and practical grace to walk differently.",
-    fruitToday:"Freedom. Clarity. A changed direction.",
-    prompts:[
-      "Lord, where do I need to turn, not just feel sorry?",
-      "What practical change would support repentance?",
-      "Thank You that mercy invites me back."
-    ]
-  },
-  {
-    theme:"Endurance",
-    verse:"Let perseverance finish its work, that you may be mature and complete, lacking in nothing.",
-    ref:"James 1:4",
-    ponder:"Some maturity only forms through endurance.",
-    ask:"Where am I trying to escape what God wants to develop?",
-    obey:"Stay faithful in one hard thing today.",
-    wordToSitWith:"Endurance is not passive suffering. It is faithful remaining under God’s hand while He forms maturity.",
-    heartCheck:"Am I asking only for escape, or also for formation?",
-    prayerDirection:"Ask God for strength to remain faithful without becoming hard.",
-    fruitToday:"Stamina. Maturity. Faith that does not collapse quickly.",
-    prompts:[
-      "Father, what are You forming in me through this?",
-      "Where do I need endurance rather than instant relief?",
-      "Keep my heart soft while I persevere."
-    ]
-  },
-  {
-    theme:"Surrendered plans",
-    verse:"Commit your works to Yahweh, and your plans shall be established.",
-    ref:"Proverbs 16:3",
-    ponder:"Commitment to God comes before confidence in plans.",
-    ask:"Have I planned with God or only asked Him to bless it after?",
-    obey:"Pray over your plan before acting on it.",
-    wordToSitWith:"Surrendered planning is not laziness. It is responsible action submitted to God’s wisdom and timing.",
-    heartCheck:"Where am I asking God to endorse what I have not surrendered?",
-    prayerDirection:"Ask God to reorder your plans according to His will.",
-    fruitToday:"Peaceful planning. Better priorities. Less anxiety.",
-    prompts:[
-      "Lord, I commit this plan to You.",
-      "What part of my plan needs surrender?",
-      "Establish only what pleases You."
-    ]
-  },
-  {
-    theme:"Spiritual alertness",
-    verse:"Watch and pray, that you don’t enter into temptation. The spirit indeed is willing, but the flesh is weak.",
-    ref:"Matthew 26:41",
-    ponder:"Willingness needs watchfulness.",
-    ask:"Where am I spiritually sleepy?",
-    obey:"Identify one temptation pattern and guard against it.",
-    wordToSitWith:"Good intentions are not enough. Jesus calls His disciples to watch and pray because weakness must be guarded before the moment of testing.",
-    heartCheck:"What pattern do I keep underestimating?",
-    prayerDirection:"Ask God for alertness before temptation becomes strong.",
-    fruitToday:"Awareness. Protection. Stronger boundaries.",
-    prompts:[
-      "Jesus, wake up the sleepy places in me.",
-      "What temptation pattern do I need to watch for?",
-      "Help me pray before I am under pressure."
-    ]
-  },
-  {
-    theme:"Generosity",
-    verse:"It is more blessed to give than to receive.",
-    ref:"Acts 20:35",
-    ponder:"Giving trains the heart away from self protection.",
-    ask:"Where has fear made me closed handed?",
-    obey:"Give time, encouragement, help, or money with joy.",
-    wordToSitWith:"Generosity is not only about amount. It is about trust. It declares that God is provider, not fear.",
-    heartCheck:"Am I holding tightly because I do not trust God to care for me?",
-    prayerDirection:"Ask God for a generous spirit with wisdom and joy.",
-    fruitToday:"Open hands. Less fear. Practical love.",
-    prompts:[
-      "Father, where do You want me to be generous?",
-      "What fear makes me hold back?",
-      "Teach me to give without pride or resentment."
-    ]
-  },
-  {
-    theme:"Peace",
-    verse:"You will keep whoever’s mind is steadfast in perfect peace, because he trusts in you.",
-    ref:"Isaiah 26:3",
-    ponder:"Peace is connected to where the mind rests.",
-    ask:"What has my mind been fixed on?",
-    obey:"Redirect one anxious thought into prayer.",
-    wordToSitWith:"Peace is not the absence of responsibility. It is the fruit of a mind repeatedly returned to trust in God.",
-    heartCheck:"Have I been meditating on fear more than truth?",
-    prayerDirection:"Ask God to steady your mind and teach you trust.",
-    fruitToday:"Settled thoughts. Less spiralling. More prayer.",
-    prompts:[
-      "Lord, steady my mind in You.",
-      "What thought pattern is stealing my peace?",
-      "Help me trust You with what I cannot control."
-    ]
-  },
-  {
-    theme:"The presence of God",
-    verse:"In your presence is fullness of joy. In your right hand there are pleasures forevermore.",
-    ref:"Psalm 16:11",
-    ponder:"Joy is found near God.",
-    ask:"Have I been seeking joy away from God?",
-    obey:"Spend a few undistracted minutes enjoying God’s presence.",
-    wordToSitWith:"God is not only useful. He is satisfying. The soul was made for His presence.",
-    heartCheck:"Do I come to God only with tasks, or also with love?",
-    prayerDirection:"Ask God to restore joy in His presence.",
-    fruitToday:"Joy. Worship. A less hurried heart.",
-    prompts:[
-      "Father, teach me to enjoy You again.",
-      "Where have I looked for joy apart from You?",
-      "Draw me into Your presence with a sincere heart."
-    ]
-  },
-  {
-    theme:"Servanthood",
-    verse:"Whoever desires to become great among you shall be your servant.",
-    ref:"Matthew 20:26",
-    ponder:"Kingdom greatness bends low.",
-    ask:"Where do I resist serving because I feel above it?",
-    obey:"Serve someone without announcing it.",
-    wordToSitWith:"Jesus redefines greatness. The kingdom does not measure greatness by status first, but by love expressed through service.",
-    heartCheck:"Am I willing to be useful when it is not glamorous?",
-    prayerDirection:"Ask God for the heart of a servant without resentment.",
-    fruitToday:"Humility. Usefulness. Joy in serving.",
-    prompts:[
-      "Jesus, make me willing to serve like You.",
-      "Where have I wanted honour more than usefulness?",
-      "Show me one lowly act of love today."
-    ]
-  },
-  {
-    theme:"Identity in Christ",
-    verse:"See how great a love the Father has given to us, that we should be called children of God.",
-    ref:"1 John 3:1",
-    ponder:"Beloved is not something you achieve.",
-    ask:"What false name have I been living under?",
-    obey:"Speak God’s truth over your identity today.",
-    wordToSitWith:"Before you perform, prove, fix, or achieve, the Father calls His people children. Identity received from God steadies the soul.",
-    heartCheck:"Am I trying to earn what the Father has already given in Christ?",
-    prayerDirection:"Ask God to heal false identity and root you in His love.",
-    fruitToday:"Security. Rest. Confidence without pride.",
-    prompts:[
-      "Father, help me receive Your love deeply.",
-      "What false label have I believed about myself?",
-      "Teach me to live today as Your child."
     ]
   }
 ];
@@ -1177,14 +1007,23 @@ function formatDate(date){
   });
 }
 
+function safeText(value){
+  if(!value){
+    return "";
+  }
+
+  return String(value).trim();
+}
+
 const dateKey = getDateKey(today);
-const devotional = devotionals[getDayOfYear(today) % devotionals.length];
+const dayNumber = getDayOfYear(today);
+const devotional = devotionals[(dayNumber - 1) % devotionals.length];
 
 document.getElementById("todayDate").textContent = formatDate(today);
-document.getElementById("dayPill").textContent = `Day ${getDayOfYear(today)}`;
+document.getElementById("dayPill").textContent = `Day ${dayNumber}`;
 document.getElementById("theme").textContent = devotional.theme;
 document.getElementById("verse").textContent = devotional.verse;
-document.getElementById("ref").textContent = devotional.ref;
+document.getElementById("ref").textContent = `${devotional.ref} ${BIBLE_VERSION}`;
 
 document.getElementById("ponderLine").textContent = devotional.ponder;
 document.getElementById("askLine").textContent = devotional.ask;
@@ -1205,11 +1044,67 @@ devotional.prompts.forEach(function(prompt){
 });
 
 function getEntries(){
-  return JSON.parse(localStorage.getItem("paceQuietTimeEntriesV1")) || {};
+  try{
+    const saved = localStorage.getItem(STORAGE_KEY);
+
+    if(!saved){
+      return {};
+    }
+
+    return JSON.parse(saved) || {};
+  }catch(error){
+    return {};
+  }
 }
 
 function setEntries(entries){
-  localStorage.setItem("paceQuietTimeEntriesV1",JSON.stringify(entries));
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(entries));
+}
+
+function getProgress(){
+  return {
+    read:document.getElementById("readDone").checked,
+    devotional:document.getElementById("devotionalDone").checked,
+    prayer:document.getElementById("prayerDone").checked,
+    obey:document.getElementById("obeyDone").checked
+  };
+}
+
+function setProgress(progress){
+  document.getElementById("readDone").checked = Boolean(progress && progress.read);
+  document.getElementById("devotionalDone").checked = Boolean(progress && progress.devotional);
+  document.getElementById("prayerDone").checked = Boolean(progress && progress.prayer);
+  document.getElementById("obeyDone").checked = Boolean(progress && progress.obey);
+}
+
+function countProgress(progress){
+  if(!progress){
+    return 0;
+  }
+
+  return [
+    progress.read,
+    progress.devotional,
+    progress.prayer,
+    progress.obey
+  ].filter(Boolean).length;
+}
+
+function hasTodayContent(){
+  const reflection = safeText(document.getElementById("reflection").value);
+  const surrender = safeText(document.getElementById("surrender").value);
+  const prayer = safeText(document.getElementById("prayer").value);
+  const progress = getProgress();
+
+  return Boolean(
+    reflection ||
+    surrender ||
+    prayer ||
+    progress.read ||
+    progress.devotional ||
+    progress.prayer ||
+    progress.obey
+  );
 }
 
 function loadToday(){
@@ -1220,39 +1115,106 @@ function loadToday(){
     document.getElementById("reflection").value = entry.reflection || "";
     document.getElementById("surrender").value = entry.surrender || "";
     document.getElementById("prayer").value = entry.prayer || "";
+    setProgress(entry.progress || {});
   }
+
+  updateCompletionPill();
 }
 
-function saveToday(){
-  const entries = getEntries();
-
-  entries[dateKey] = {
+function buildTodayEntry(){
+  return {
     date:dateKey,
     formattedDate:formatDate(today),
+    dayNumber:dayNumber,
+    church:"Timothy Church",
     theme:devotional.theme,
     ref:devotional.ref,
-    reflection:document.getElementById("reflection").value.trim(),
-    surrender:document.getElementById("surrender").value.trim(),
-    prayer:document.getElementById("prayer").value.trim(),
+    bibleVersion:BIBLE_VERSION,
+    verse:devotional.verse,
+    source:"https://www.daghewardmills.org/daily-devotional",
+    reflection:safeText(document.getElementById("reflection").value),
+    surrender:safeText(document.getElementById("surrender").value),
+    prayer:safeText(document.getElementById("prayer").value),
+    progress:getProgress(),
     savedAt:new Date().toISOString()
   };
+}
+
+function saveToday(showMessage){
+  const entries = getEntries();
+
+  if(!hasTodayContent()){
+    delete entries[dateKey];
+    setEntries(entries);
+    updateStats();
+    renderHistory();
+    updateCompletionPill();
+    return;
+  }
+
+  entries[dateKey] = buildTodayEntry();
 
   setEntries(entries);
   updateStats();
   renderHistory();
+  updateCompletionPill();
 
-  const savedMsg = document.getElementById("savedMsg");
-  savedMsg.style.display = "block";
+  if(showMessage){
+    const savedMsg = document.getElementById("savedMsg");
+    savedMsg.textContent = "Saved";
+    savedMsg.style.display = "block";
 
-  setTimeout(function(){
-    savedMsg.style.display = "none";
-  },1800);
+    setTimeout(function(){
+      savedMsg.style.display = "none";
+    },1800);
+  }
 }
 
 function clearToday(){
   document.getElementById("reflection").value = "";
   document.getElementById("surrender").value = "";
   document.getElementById("prayer").value = "";
+  setProgress({});
+  updateCompletionPill();
+}
+
+function deleteToday(){
+  const entries = getEntries();
+  delete entries[dateKey];
+  setEntries(entries);
+
+  clearToday();
+  updateStats();
+  renderHistory();
+
+  const savedMsg = document.getElementById("savedMsg");
+  savedMsg.textContent = "Today’s entry deleted";
+  savedMsg.style.display = "block";
+
+  setTimeout(function(){
+    savedMsg.style.display = "none";
+    savedMsg.textContent = "Saved";
+  },1800);
+}
+
+function updateCompletionPill(){
+  const progress = getProgress();
+  const progressCount = countProgress(progress);
+  const entries = getEntries();
+  const hasSavedEntry = Boolean(entries[dateKey]);
+  const pill = document.getElementById("completionPill");
+
+  if(progressCount === 4){
+    pill.textContent = "Complete";
+    return;
+  }
+
+  if(hasSavedEntry || hasTodayContent()){
+    pill.textContent = `${progressCount} of 4 done`;
+    return;
+  }
+
+  pill.textContent = "Not saved yet";
 }
 
 function updateStats(){
@@ -1286,7 +1248,7 @@ function renderHistory(){
     return;
   }
 
-  sorted.slice(0,12).forEach(function(entry){
+  sorted.slice(0,30).forEach(function(entry){
     const item = document.createElement("div");
     item.className = "history-item";
 
@@ -1296,21 +1258,101 @@ function renderHistory(){
 
     const theme = document.createElement("div");
     theme.className = "history-theme";
-    theme.textContent = `${entry.theme} • ${entry.ref}`;
+    theme.textContent = `${entry.theme} • ${entry.ref} ${entry.bibleVersion || BIBLE_VERSION}`;
+
+    const progressCount = countProgress(entry.progress);
+
+    const note = document.createElement("div");
+    note.className = "history-note";
+    note.textContent = `${progressCount} of 4 completed`;
 
     item.appendChild(date);
     item.appendChild(theme);
+    item.appendChild(note);
 
-    item.onclick = function(){
-      document.getElementById("reflection").value = entry.reflection || "";
-      document.getElementById("surrender").value = entry.surrender || "";
-      document.getElementById("prayer").value = entry.prayer || "";
-      window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
-    };
+    item.addEventListener("click",function(){
+      viewEntry(entry);
+    });
 
     list.appendChild(item);
   });
 }
+
+function viewEntry(entry){
+  const box = document.getElementById("viewBox");
+  const title = document.getElementById("viewTitle");
+  const meta = document.getElementById("viewMeta");
+  const text = document.getElementById("viewText");
+
+  title.textContent = entry.formattedDate || entry.date;
+  meta.textContent = `${entry.theme} • ${entry.ref} ${entry.bibleVersion || BIBLE_VERSION}`;
+
+  text.innerHTML = "";
+
+  const reflection = document.createElement("div");
+  reflection.innerHTML = `<strong>What stood out:</strong> ${entry.reflection || "Nothing written."}`;
+
+  const surrender = document.createElement("div");
+  surrender.innerHTML = `<strong>Surrender:</strong> ${entry.surrender || "Nothing written."}`;
+
+  const prayer = document.createElement("div");
+  prayer.innerHTML = `<strong>Prayer:</strong> ${entry.prayer || "Nothing written."}`;
+
+  const progress = document.createElement("div");
+  progress.innerHTML = `<strong>Progress:</strong> ${countProgress(entry.progress)} of 4 completed.`;
+
+  text.appendChild(reflection);
+  text.appendChild(surrender);
+  text.appendChild(prayer);
+  text.appendChild(progress);
+
+  box.style.display = "block";
+  box.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+let autoSaveTimer;
+
+function scheduleAutoSave(){
+  clearTimeout(autoSaveTimer);
+
+  autoSaveTimer = setTimeout(function(){
+    saveToday(false);
+  },600);
+}
+
+document.getElementById("saveBtn").addEventListener("click",function(){
+  saveToday(true);
+});
+
+document.getElementById("clearBtn").addEventListener("click",function(){
+  clearToday();
+});
+
+document.getElementById("deleteBtn").addEventListener("click",function(){
+  deleteToday();
+});
+
+[
+  "reflection",
+  "surrender",
+  "prayer",
+  "readDone",
+  "devotionalDone",
+  "prayerDone",
+  "obeyDone"
+].forEach(function(id){
+  const element = document.getElementById(id);
+
+  element.addEventListener("input",function(){
+    updateCompletionPill();
+    scheduleAutoSave();
+  });
+
+  element.addEventListener("change",function(){
+    updateCompletionPill();
+    scheduleAutoSave();
+  });
+});
 
 loadToday();
 updateStats();
